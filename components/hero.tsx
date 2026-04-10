@@ -37,19 +37,20 @@ export function Hero() {
 
   return (
     <section className="relative flex min-h-screen items-center overflow-hidden px-6 pb-16 pt-28">
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(100,200,180,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(100,200,180,0.03)_1px,transparent_1px)] bg-[size:60px_60px]" />
-      <div className="pointer-events-none absolute left-1/2 top-24 h-[28rem] w-[28rem] -translate-x-1/2 rounded-full bg-primary/12 blur-3xl" />
+      <div className="mesh-overlay pointer-events-none absolute inset-0 opacity-60" />
+      <div className="pointer-events-none absolute left-[10%] top-24 h-[32rem] w-[32rem] rounded-full bg-primary/14 blur-3xl" />
+      <div className="pointer-events-none absolute right-[8%] top-1/3 h-64 w-64 rounded-full bg-primary/10 blur-3xl" />
 
       <div className="section-shell relative z-10 grid items-center gap-14 lg:grid-cols-[1.15fr_0.85fr]">
         <div className="flex flex-col gap-6">
-          <div className="inline-flex w-fit items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 font-mono text-xs uppercase tracking-[0.2em] text-primary">
+          <div className="section-kicker w-fit">
             Portfolio profissional
           </div>
 
-          <div className="space-y-4">
-            <p className="font-mono text-sm text-primary">Adryan Thiago de Oliveira Francisco</p>
-            <h1 className="max-w-4xl text-5xl font-bold leading-[1.02] tracking-tight text-foreground md:text-7xl">
-              Desenvolvedor full stack focado em produtos web claros, modernos e bem construidos.
+          <div className="space-y-5">
+            <p className="font-mono text-sm text-primary/90">Adryan Thiago de Oliveira Francisco</p>
+            <h1 className="max-w-5xl text-5xl font-bold leading-[0.95] tracking-[-0.04em] text-foreground sm:text-6xl md:text-7xl xl:text-[5.4rem]">
+              Desenvolvo produtos web com clareza, estrutura e foco em entrega.
             </h1>
           </div>
 
@@ -64,16 +65,15 @@ export function Hero() {
             </p>
           </div>
 
-          <p className="max-w-2xl text-base leading-8 text-muted-foreground md:text-lg">
-            Reuno aqui os projetos que melhor representam minha evolucao tecnica em React,
-            TypeScript, .NET e integracoes com banco de dados. Meu foco e transformar estudo em
-            entrega real, com interfaces cuidadas e codigo organizado.
+          <p className="max-w-2xl text-[15px] leading-8 text-muted-foreground md:text-lg">
+            Reuni aqui projetos que refletem meu trabalho com React, .NET, DDD e deploy, sempre
+            buscando interfaces bem resolvidas e sistemas organizados.
           </p>
 
           <div className="flex flex-wrap items-center gap-4 pt-2">
             <a
               href="#projetos"
-              className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+              className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-[0_14px_34px_rgba(73,243,208,0.22)] transition-all hover:-translate-y-0.5 hover:opacity-95"
             >
               Ver projetos principais
             </a>
@@ -81,7 +81,7 @@ export function Hero() {
               href={profile.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-border bg-background/60 px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary/50 hover:text-primary"
+              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-background/55 px-6 py-3 text-sm font-semibold text-foreground transition-all hover:-translate-y-0.5 hover:border-primary/50 hover:text-primary"
             >
               Conversar no LinkedIn
             </a>
@@ -92,7 +92,7 @@ export function Hero() {
               href={profile.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full border border-border p-3 text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+              className="rounded-full border border-white/10 bg-background/50 p-3 text-muted-foreground transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary"
               aria-label="GitHub"
             >
               <Github className="h-5 w-5" />
@@ -101,7 +101,7 @@ export function Hero() {
               href={profile.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full border border-border p-3 text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+              className="rounded-full border border-white/10 bg-background/50 p-3 text-muted-foreground transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary"
               aria-label="LinkedIn"
             >
               <Linkedin className="h-5 w-5" />
@@ -110,7 +110,7 @@ export function Hero() {
 
           <div className="grid gap-4 pt-4 sm:grid-cols-3">
             {strengths.map((item) => (
-              <div key={item.title} className="glass-panel rounded-2xl p-5">
+              <div key={item.title} className="glass-panel rounded-[24px] p-5 transition-all hover:-translate-y-1 hover:border-primary/35">
                 <p className="mb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-primary">
                   {item.title}
                 </p>
@@ -121,16 +121,17 @@ export function Hero() {
         </div>
 
         <div className="space-y-5">
-          <div className="glass-panel rounded-[28px] p-7 shadow-[0_24px_90px_rgba(0,0,0,0.22)]">
+          <div className="glass-panel relative overflow-hidden rounded-[32px] p-7">
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(145deg,rgba(73,243,208,0.08),transparent_38%)]" />
             <p className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-primary">
               Destaque atual
             </p>
-            <h2 className="text-2xl font-semibold text-foreground">
+            <h2 className="relative text-2xl font-semibold text-foreground">
               {liveProject?.title ?? "Projeto em producao"}
             </h2>
-            <p className="mt-3 text-sm leading-7 text-muted-foreground">
+            <p className="relative mt-3 text-sm leading-7 text-muted-foreground">
               {liveProject?.description ??
-                "Projeto publicado com foco em experiencia de produto, estrutura profissional e deploy online."}
+                "Projeto publicado com foco em experiencia de produto, arquitetura organizada e deploy online."}
             </p>
 
             <div className="mt-5 flex flex-wrap gap-2">
@@ -150,7 +151,7 @@ export function Hero() {
                   href={liveProject.live}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-3 text-sm font-semibold text-background transition-opacity hover:opacity-90"
+                  className="inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-3 text-sm font-semibold text-background transition-all hover:-translate-y-0.5 hover:opacity-90"
                 >
                   Ver demo
                   <ExternalLink className="h-4 w-4" />
@@ -160,7 +161,7 @@ export function Hero() {
                 href={liveProject?.github ?? profile.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary/50 hover:text-primary"
+                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-background/40 px-5 py-3 text-sm font-semibold text-foreground transition-all hover:-translate-y-0.5 hover:border-primary/50 hover:text-primary"
               >
                 Codigo no GitHub
                 <Github className="h-4 w-4" />
@@ -169,28 +170,28 @@ export function Hero() {
           </div>
 
           <div className="grid gap-4 sm:grid-cols-3">
-            <div className="glass-panel rounded-2xl p-5">
+            <div className="glass-panel rounded-[24px] p-5 transition-all hover:-translate-y-1 hover:border-primary/35">
               <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-primary">
                 Stack
               </p>
               <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                React, Next.js, TypeScript, .NET e Supabase.
+                React, Next.js, TypeScript e .NET.
               </p>
             </div>
-            <div className="glass-panel rounded-2xl p-5">
+            <div className="glass-panel rounded-[24px] p-5 transition-all hover:-translate-y-1 hover:border-primary/35">
               <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-primary">
-                Foco
+                Arquitetura
               </p>
               <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                Interfaces objetivas, CRUDs bem estruturados e evolucao continua.
+                DDD, APIs REST e organizacao por camadas.
               </p>
             </div>
-            <div className="glass-panel rounded-2xl p-5">
+            <div className="glass-panel rounded-[24px] p-5 transition-all hover:-translate-y-1 hover:border-primary/35">
               <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-primary">
-                Presenca
+                Entrega
               </p>
               <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                Projetos ativos e portfolio conectado ao GitHub.
+                Deploy com Vercel, GitHub e VPS.
               </p>
             </div>
           </div>

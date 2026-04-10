@@ -25,12 +25,14 @@ export function Header() {
   return (
     <header
       className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
-        isScrolled ? "border-b border-white/6 bg-background/78 backdrop-blur-xl" : "bg-transparent"
+        isScrolled
+          ? "border-b border-white/8 bg-background/72 shadow-[0_12px_40px_rgba(0,0,0,0.18)] backdrop-blur-2xl"
+          : "bg-transparent"
       }`}
     >
       <nav className="section-shell flex items-center justify-between px-6 py-4">
         <a href="#" className="flex items-center gap-3">
-          <span className="rounded-full border border-primary/35 bg-primary/10 px-3 py-1 font-mono text-xs tracking-[0.25em] text-primary">
+          <span className="rounded-full border border-primary/35 bg-primary/10 px-3 py-1 font-mono text-xs tracking-[0.25em] text-primary shadow-[0_0_24px_rgba(73,243,208,0.14)]">
             AF
           </span>
           <span className="hidden text-sm font-medium text-foreground sm:inline">
@@ -56,7 +58,7 @@ export function Header() {
             href={profile.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full border border-border px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary/50 hover:text-primary"
+            className="rounded-full border border-white/10 bg-background/45 px-4 py-2 text-sm font-medium text-foreground transition-all hover:-translate-y-0.5 hover:border-primary/50 hover:text-primary"
           >
             LinkedIn
           </a>
@@ -72,7 +74,7 @@ export function Header() {
       </nav>
 
       {isMobileMenuOpen && (
-        <div className="border-b border-white/6 bg-background/95 backdrop-blur-xl md:hidden">
+        <div className="border-b border-white/8 bg-background/92 backdrop-blur-2xl md:hidden">
           <div className="section-shell px-6 py-5">
             <ul className="flex flex-col gap-4">
               {navLinks.map((link) => (
@@ -92,7 +94,7 @@ export function Header() {
               href={profile.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-5 inline-flex rounded-full border border-border px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary/50 hover:text-primary"
+              className="mt-5 inline-flex rounded-full border border-white/10 bg-background/45 px-4 py-2 text-sm font-medium text-foreground transition-all hover:border-primary/50 hover:text-primary"
             >
               Acessar LinkedIn
             </a>

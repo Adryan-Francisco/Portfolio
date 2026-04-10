@@ -10,8 +10,8 @@ export const profile = {
 
 export const roles = [
   "Desenvolvedor Full Stack",
-  "Criando interfaces modernas",
-  "Construindo projetos reais com React e .NET",
+  "Projetos reais com foco em produto",
+  "React, .NET, DDD e deploy",
 ]
 
 export const highlights = [
@@ -21,15 +21,15 @@ export const highlights = [
   },
   {
     title: "Backend",
-    description: "APIs, integrações e estruturação de lógica de negócio para aplicações web.",
+    description: "APIs, integracoes e estruturacao de logica de negocio para aplicacoes web.",
   },
   {
     title: "Banco de dados",
-    description: "Supabase, persistência de dados e organização de fluxos CRUD completos.",
+    description: "Supabase, persistencia de dados e organizacao de fluxos CRUD completos.",
   },
   {
     title: "Entrega",
-    description: "Projetos acadêmicos e práticos publicados no GitHub, com evolução contínua.",
+    description: "Projetos praticos publicados no GitHub, com evolucao continua.",
   },
 ]
 
@@ -46,7 +46,7 @@ export const featuredProjects = [
   {
     title: "controle-imoveis-react",
     description:
-      "Aplicação para controle de imóveis rurais feita em React com Supabase, com foco em cadastro, organização e consulta de informações.",
+      "Aplicacao para controle de imoveis rurais feita em React com Supabase, com foco em cadastro, organizacao e consulta de informacoes.",
     techs: ["React", "JavaScript", "Supabase"],
     github: "https://github.com/Adryan-Francisco/controle-imoveis-react",
     live: null,
@@ -55,7 +55,7 @@ export const featuredProjects = [
   {
     title: "Web-Api-em-.Net-React",
     description:
-      "Projeto full stack integrando frontend React com backend em .NET, mostrando domínio de comunicação entre API e interface.",
+      "Projeto full stack integrando frontend React com backend em .NET, mostrando dominio de comunicacao entre API e interface.",
     techs: ["React", ".NET", "C#"],
     github: "https://github.com/Adryan-Francisco/Web-Api-em-.Net-React",
     live: null,
@@ -64,7 +64,7 @@ export const featuredProjects = [
   {
     title: "CRUDNN",
     description:
-      "Sistema CRUD voltado para prática de operações essenciais de cadastro, listagem, edição e remoção em ambiente web.",
+      "Sistema CRUD voltado para pratica de operacoes essenciais de cadastro, listagem, edicao e remocao em ambiente web.",
     techs: ["HTML", "CSS", "JavaScript"],
     github: "https://github.com/Adryan-Francisco/CRUDNN",
     live: null,
@@ -73,7 +73,7 @@ export const featuredProjects = [
   {
     title: "ProjetoEAD",
     description:
-      "Projeto web estruturado para ambiente educacional, com foco em organização de páginas e experiência de navegação.",
+      "Projeto web estruturado para ambiente educacional, com foco em organizacao de paginas e experiencia de navegacao.",
     techs: ["HTML", "CSS", "JavaScript"],
     github: "https://github.com/Adryan-Francisco/ProjetoEAD",
     live: null,
@@ -82,9 +82,27 @@ export const featuredProjects = [
   {
     title: "controle-estoque",
     description:
-      "Aplicação voltada ao gerenciamento de estoque, reforçando lógica de negócio, controle de itens e fluxo operacional.",
+      "Aplicacao voltada ao gerenciamento de estoque, reforcando logica de negocio, controle de itens e fluxo operacional.",
     techs: ["JavaScript", "HTML", "CSS"],
     github: "https://github.com/Adryan-Francisco/controle-estoque",
+    live: null,
+    featured: false,
+  },
+  {
+    title: "SIC",
+    description:
+      "Projeto publicado em C# com foco em estrutura de sistema e organizacao de fluxo aplicado ao contexto da aplicacao.",
+    techs: ["C#", ".NET", "APIs REST", "DDD"],
+    github: "https://github.com/Adryan-Francisco/SIC",
+    live: null,
+    featured: false,
+  },
+  {
+    title: "DevOps",
+    description:
+      "Projeto em Java publicado no GitHub, ampliando meu repertorio com uma stack adicional voltada a estrutura e organizacao de aplicacoes.",
+    techs: ["Java"],
+    github: "https://github.com/Adryan-Francisco/DevOps",
     live: null,
     featured: false,
   },
@@ -92,27 +110,39 @@ export const featuredProjects = [
 
 export const strengths = [
   {
-    title: "Projetos publicados",
-    description: "Portfólio construído a partir de projetos reais disponíveis no GitHub.",
+    title: "Projetos reais",
+    description: "Aplicacoes publicadas e conectadas ao meu GitHub.",
   },
   {
     title: "Base full stack",
-    description: "Experiência prática com frontend, backend, APIs e banco de dados.",
+    description: "Frontend, backend, APIs e modelagem de negocio.",
   },
   {
-    title: "Evolução constante",
-    description: "Repositórios atualizados com diferentes stacks e tipos de aplicação.",
+    title: "Entrega",
+    description: "Deploy, organizacao de codigo e ambiente real.",
   },
 ]
 
 export const technologies = [
-  { name: "React", level: 88 },
-  { name: "Next.js", level: 82 },
-  { name: "JavaScript", level: 90 },
-  { name: "TypeScript", level: 70 },
-  { name: "C#", level: 74 },
-  { name: ".NET", level: 72 },
-  { name: "Supabase", level: 76 },
-  { name: "HTML/CSS", level: 92 },
-  { name: "Git/GitHub", level: 85 },
+  {
+    title: "Frontend que eu uso para entregar interface",
+    eyebrow: "Experiencia visual",
+    description:
+      "Base que eu aplico para construir paginas responsivas, componentes reutilizaveis e interfaces com boa leitura.",
+    stacks: ["React", "Next.js", "TypeScript", "JavaScript", "HTML", "CSS"],
+  },
+  {
+    title: "Backend e regras de negocio",
+    eyebrow: "Estrutura da aplicacao",
+    description:
+      "Tecnologias e padroes que sustentam APIs, integracao entre camadas e organizacao da logica por tras dos projetos full stack.",
+    stacks: ["C#", ".NET", "APIs REST", "DDD", "Arquitetura CRUD"],
+  },
+  {
+    title: "Dados, deploy e fluxo de trabalho",
+    eyebrow: "Entrega real",
+    description:
+      "Ferramentas e ambientes que entram no meu processo para persistencia, versionamento, deploy e hospedagem de aplicacoes web.",
+    stacks: ["Supabase", "Git", "GitHub", "Vercel", "Hospedagem em VPS"],
+  },
 ]

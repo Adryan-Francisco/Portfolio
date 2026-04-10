@@ -6,7 +6,7 @@ const experiences = [
     contract: "Estagio",
     location: "Presencial",
     description:
-      "Atuacao em suporte de sistemas, auxiliando na resolucao de demandas operacionais e no acompanhamento de rotinas ligadas ao uso e sustentacao da plataforma.",
+      "Atuacao em suporte de sistemas, com foco na resolucao de demandas operacionais, acompanhamento de rotinas e sustentacao da plataforma no dia a dia.",
     techs: ["Suporte", "Sistemas", "Atendimento", "Operacao"],
   },
   {
@@ -16,14 +16,14 @@ const experiences = [
     contract: "Meio periodo",
     location: "Presencial",
     description:
-      "Experiencia com rotinas administrativas e organizacao de processos, desenvolvendo disciplina operacional, atencao a detalhes e acompanhamento de demandas do escritorio.",
+      "Experiencia com rotinas administrativas e organizacao de processos, desenvolvendo disciplina operacional, atencao a detalhes e acompanhamento continuo de demandas.",
     techs: ["Administrativo", "Organizacao", "Processos", "Rotina"],
   },
 ]
 
 export function Experience() {
   return (
-    <section id="experiencia" className="px-6 py-24">
+    <section id="experiencia" className="relative px-6 py-24">
       <div className="section-shell">
         <div className="section-heading">
           <span className="font-mono text-sm text-primary">04.</span>
@@ -32,18 +32,18 @@ export function Experience() {
         </div>
 
         <div className="relative">
-          <div className="absolute left-0 top-0 hidden h-full w-px bg-border md:left-[200px] md:block" />
+          <div className="absolute left-0 top-0 hidden h-full w-px bg-gradient-to-b from-primary/50 via-border to-transparent md:left-[210px] md:block" />
 
           <div className="flex flex-col gap-10">
             {experiences.map((exp) => (
-              <div key={exp.title} className="relative grid gap-4 md:grid-cols-[200px_1fr]">
+              <div key={exp.title} className="relative grid gap-4 md:grid-cols-[210px_1fr]">
                 <div className="pt-1 font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground md:text-right">
                   {exp.period}
                 </div>
 
-                <div className="absolute left-[-5px] top-2 hidden h-2.5 w-2.5 rounded-full border-2 border-primary bg-background md:left-[196px] md:block" />
+                <div className="absolute left-[-5px] top-2 hidden h-3 w-3 rounded-full border-2 border-primary bg-background shadow-[0_0_22px_rgba(73,243,208,0.35)] md:left-[204px] md:block" />
 
-                <div className="glass-panel rounded-[24px] p-6 md:ml-10">
+                <div className="glass-panel rounded-[28px] p-6 md:ml-10">
                   <div className="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
                     <div>
                       <h3 className="text-lg font-semibold text-foreground">{exp.title}</h3>
