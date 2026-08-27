@@ -1,17 +1,30 @@
 import type { Metadata } from "next"
-import { Inter, JetBrains_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 
 import { profile } from "@/lib/portfolio-data"
 import "./globals.css"
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
-const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jetbrains-mono" })
-
 export const metadata: Metadata = {
-  title: `${profile.fullName} | ${profile.role}`,
+  metadataBase: new URL("https://portfolio-adryanf.vercel.app"),
+  title: `${profile.firstName} Francisco — ${profile.role}`,
   description:
-    "Portfolio profissional de Adryan Thiago de Oliveira Francisco com projetos em React, .NET, Supabase e desenvolvimento web full stack.",
+    "Portfólio de Adryan Francisco, desenvolvedor Full Stack com React, Next.js, TypeScript, C#, .NET, APIs REST, DDD e sistemas em produção.",
+  alternates: { canonical: "/" },
+  keywords: ["Adryan Francisco", "Desenvolvedor Full Stack", "React", "Next.js", "TypeScript", "C#", ".NET", "DDD"],
+  authors: [{ name: profile.fullName, url: profile.linkedin }],
+  openGraph: {
+    type: "website",
+    locale: "pt_BR",
+    url: "/",
+    title: `${profile.firstName} Francisco — ${profile.role}`,
+    description: "Sistemas web do frontend à arquitetura, com React, Next.js, TypeScript, C# e .NET.",
+    siteName: "Adryan Francisco — Portfólio",
+  },
+  twitter: {
+    card: "summary",
+    title: `${profile.firstName} Francisco — ${profile.role}`,
+    description: "Sistemas web do frontend à arquitetura, com React, Next.js, TypeScript, C# e .NET.",
+  },
   icons: {
     icon: [
       {
@@ -32,7 +45,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport = {
-  themeColor: "#1a1d2e",
+  themeColor: "#080b12",
 }
 
 export default function RootLayout({
@@ -42,7 +55,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className="scroll-smooth">
-      <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
+      <body className="font-sans antialiased">
         {children}
         <Analytics />
       </body>
