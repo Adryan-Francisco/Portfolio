@@ -1,5 +1,24 @@
 import type { MetadataRoute } from "next"
 
+import { siteUrl } from "@/lib/portfolio-data"
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [{ url: "https://portfolio-adryanf.vercel.app", lastModified: new Date(), changeFrequency: "monthly", priority: 1 }]
+  const lastModified = new Date()
+
+  return [
+    {
+      url: siteUrl,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 1,
+      alternates: { languages: { "pt-BR": siteUrl, en: `${siteUrl}/en` } },
+    },
+    {
+      url: `${siteUrl}/en`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.9,
+      alternates: { languages: { "pt-BR": siteUrl, en: `${siteUrl}/en` } },
+    },
+  ]
 }

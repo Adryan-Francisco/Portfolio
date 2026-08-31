@@ -1,11 +1,21 @@
-export type ProjectType = "SaaS / Full Stack" | "Full Stack" | "Frontend" | "Backend" | "Web"
+export type ProjectId =
+  | "barberflow"
+  | "agenda-medica"
+  | "sic"
+  | "controle-estoque"
+  | "angular-supabase-crud"
+  | "web-api-dotnet-react"
+  | "crudnn"
+  | "projeto-ead"
+  | "devops"
 
-export interface Project {
+/** Dados estáveis de cada projeto. Textos traduzíveis vivem em `lib/content`. */
+export interface ProjectSource {
+  readonly id: ProjectId
   readonly title: string
-  readonly description: string
   readonly techs: readonly string[]
-  readonly type: ProjectType
-  readonly github: string
+  /** `null` quando o repositório é privado — nunca aponte para uma URL que retorna 404. */
+  readonly github: string | null
   readonly live: string | null
   readonly featured: boolean
 }
@@ -13,114 +23,90 @@ export interface Project {
 export const profile = {
   firstName: "Adryan",
   fullName: "Adryan Thiago de Oliveira Francisco",
-  role: "Desenvolvedor Full Stack",
   location: "Brasil",
+  email: "adryanfrancisco62@gmail.com",
   github: "https://github.com/Adryan-Francisco?tab=repositories",
   linkedin: "https://www.linkedin.com/in/adryan-francisco",
   githubUsername: "Adryan-Francisco",
 } as const
 
-export const navLinks = [
-  { label: "Sobre", href: "#sobre" },
-  { label: "Stack", href: "#stack" },
-  { label: "Projetos", href: "#projetos" },
-  { label: "Contato", href: "#contato" },
-] as const
+export const siteUrl = "https://portfolio-adryanf.vercel.app"
 
-export const expertise = [
-  { label: "Frontend", value: "React / Next.js / TypeScript" },
-  { label: "Backend", value: "C# / .NET / APIs REST" },
-  { label: "Arquitetura", value: "DDD / SOLID / Clean Code" },
-  { label: "Dados", value: "PostgreSQL / Supabase / SQL" },
-  { label: "Infra", value: "Git / GitHub / VPS / Vercel" },
-] as const
+/** Currículo opcional: o botão só é exibido quando o arquivo existe em `public/`. */
+export const resumeFile = "curriculo.pdf"
 
-export const technologies = [
-  { category: "Frontend", items: ["React", "Next.js", "TypeScript", "JavaScript", "HTML", "CSS", "Tailwind CSS"] },
-  { category: "Backend", items: ["C#", ".NET", "ASP.NET Core", "Node.js", "REST APIs"] },
-  { category: "Arquitetura", items: ["DDD", "SOLID", "Clean Code", "Arquitetura em camadas"] },
-  { category: "Banco de dados", items: ["PostgreSQL", "SQL", "Supabase"] },
-  { category: "Ferramentas e infraestrutura", items: ["Git", "GitHub", "Docker", "Vercel", "VPS"] },
-] as const
-
-export const featuredProjects: readonly Project[] = [
+/** Ordenados por força do case: o que um recrutador vê primeiro é o que mais prova. */
+export const projectSources: readonly ProjectSource[] = [
   {
+    id: "barberflow",
     title: "BarberFlow",
-    description: "Plataforma SaaS para gestão de barbearias, construída para organizar a operação e oferecer uma experiência digital consistente em uma aplicação web publicada.",
     techs: ["Next.js", "TypeScript", "SaaS", "Vercel"],
-    type: "SaaS / Full Stack",
-    github: "https://github.com/Adryan-Francisco/barbearia-saas",
-    live: "https://barbeflow.vercel.app",
+    github: null,
+    live: "https://appbarberflow.com.br",
     featured: true,
   },
   {
-    title: "Controle de imóveis",
-    description: "Aplicação para cadastro, organização e consulta de imóveis rurais com persistência de dados no Supabase.",
-    techs: ["React", "JavaScript", "Supabase"],
-    type: "Frontend",
-    github: "https://github.com/Adryan-Francisco/controle-imoveis-react",
+    id: "agenda-medica",
+    title: "Agenda Médica",
+    techs: ["Python", "Flask", "SQLAlchemy", "Docker", "Pytest"],
+    github: "https://github.com/Adryan-Francisco/Agenda-Medica",
     live: null,
     featured: false,
   },
   {
-    title: "Web API .NET + React",
-    description: "Projeto full stack que integra uma interface React a um backend .NET por meio de uma API REST.",
-    techs: ["React", ".NET", "C#"],
-    type: "Full Stack",
-    github: "https://github.com/Adryan-Francisco/Web-Api-em-.Net-React",
-    live: null,
-    featured: false,
-  },
-  {
-    title: "CRUDNN",
-    description: "Sistema web para as operações essenciais de cadastro, listagem, edição e remoção.",
-    techs: ["HTML", "CSS", "JavaScript"],
-    type: "Web",
-    github: "https://github.com/Adryan-Francisco/CRUDNN",
-    live: null,
-    featured: false,
-  },
-  {
-    title: "Projeto EAD",
-    description: "Projeto educacional com foco em organização de páginas e experiência de navegação.",
-    techs: ["HTML", "CSS", "JavaScript"],
-    type: "Web",
-    github: "https://github.com/Adryan-Francisco/ProjetoEAD",
-    live: null,
-    featured: false,
-  },
-  {
-    title: "Controle de estoque",
-    description: "Aplicação para gerenciamento de itens e fluxo operacional de estoque.",
-    techs: ["JavaScript", "HTML", "CSS"],
-    type: "Frontend",
-    github: "https://github.com/Adryan-Francisco/controle-estoque",
-    live: null,
-    featured: false,
-  },
-  {
+    id: "sic",
     title: "SIC",
-    description: "Sistema em C# com foco em organização de domínio, API e responsabilidades em camadas.",
-    techs: ["C#", ".NET", "APIs REST", "DDD"],
-    type: "Backend",
+    techs: ["C#", ".NET 8", "EF Core", "DDD", "xUnit"],
     github: "https://github.com/Adryan-Francisco/SIC",
     live: null,
     featured: false,
   },
   {
+    id: "controle-estoque",
+    title: "Controle de estoque",
+    techs: ["React", "Vite", "Tailwind CSS", "Supabase"],
+    github: "https://github.com/Adryan-Francisco/controle-estoque",
+    live: "https://adryan-francisco.github.io/controle-estoque/",
+    featured: false,
+  },
+  {
+    id: "angular-supabase-crud",
+    title: "Angular Supabase Dashboard",
+    techs: ["Angular", "TypeScript", "Angular Material", "Supabase"],
+    github: "https://github.com/Adryan-Francisco/angular-supabase-crud",
+    live: null,
+    featured: false,
+  },
+  {
+    id: "web-api-dotnet-react",
+    title: "Web API .NET + React",
+    techs: ["C#", ".NET", "EF Core", "React"],
+    github: "https://github.com/Adryan-Francisco/Web-Api-em-.Net-React",
+    live: null,
+    featured: false,
+  },
+  {
+    id: "crudnn",
+    title: "CRUDNN",
+    techs: ["HTML", "CSS", "JavaScript"],
+    github: "https://github.com/Adryan-Francisco/CRUDNN",
+    live: null,
+    featured: false,
+  },
+  {
+    id: "projeto-ead",
+    title: "Projeto EAD",
+    techs: ["HTML", "CSS", "JavaScript"],
+    github: "https://github.com/Adryan-Francisco/ProjetoEAD",
+    live: null,
+    featured: false,
+  },
+  {
+    id: "devops",
     title: "DevOps",
-    description: "Projeto em Java que amplia o repertório de estrutura e organização de aplicações.",
-    techs: ["Java"],
-    type: "Backend",
+    techs: ["Java", "Maven"],
     github: "https://github.com/Adryan-Francisco/DevOps",
     live: null,
     featured: false,
   },
-] as const
-
-export const buildPrinciples = [
-  { number: "01", title: "Produto", description: "Penso no fluxo completo que chega ao usuário, não apenas na implementação isolada." },
-  { number: "02", title: "Arquitetura", description: "Organizo responsabilidades, domínio e regras de negócio para manter o código evolutivo." },
-  { number: "03", title: "Integração", description: "Conecto interface, APIs, banco de dados e serviços em uma experiência coerente." },
-  { number: "04", title: "Entrega", description: "Levo os projetos do repositório ao ambiente real, incluindo publicação e infraestrutura." },
 ] as const

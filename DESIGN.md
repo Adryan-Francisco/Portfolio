@@ -71,6 +71,36 @@ Do not:
 - Projects remain one column on mobile and touch targets stay at least 44px.
 - The BarberFlow product preview keeps its visual hierarchy while hiding secondary dashboard details on small screens.
 
-## 9. Agent quick reference
+## 9. Languages and content
+
+The site ships as two equivalent static versions: pt-BR at `/` and English at `/en`. Each has its own root layout (route groups `(pt)` and `(en)`), which gives it the correct `lang` attribute, its own metadata, its own OG image and cross-linked `hreflang`.
+
+Every visible string lives in `lib/content/{pt,en}.ts`, typed by `Content`. Never write translatable copy directly in JSX — when adding a section, extend the `Content` type first; TypeScript then requires the translation in both languages.
+
+Stable project data (title, techs, URLs) stays in `lib/portfolio-data.ts`, keyed by `ProjectId`; only description and category are translated. Section anchors (`#sobre`, `#stack`, `#projetos`, `#contato`) are identical in both languages — only the labels change.
+
+The language switch sits in the header, left of the social icons, as a compact mono label (`EN` / `PT`). It navigates to the other version with a full reload, since they are separate root layouts.
+
+Client Components receive only the slice of content they use, not the whole `Content` object — anything passed to a Client Component is serialized into the payload sent to the browser.
+
+## 10. Contact
+
+The contact section offers three paths, in priority order: a primary email button (`mailto` with a prefilled subject), a résumé button, and social links. The address also appears as underlined mono text for anyone who prefers to copy it.
+
+The résumé button is conditional: `lib/resume.ts` checks on the server whether `public/curriculo.pdf` exists, and the button renders only when it does. To publish the résumé, just add the file — no code changes.
+
+Over the cobalt background of that section, secondary buttons use the `button-outline` variant (border and text in `--accent-ink`), and the focus ring switches to `--accent-ink` to keep contrast.
+
+## 11. Project storytelling
+
+Projects are ordered by strength of evidence, not chronology — the first cards carry the most proof.
+
+Each project may carry an optional **Challenge / Decision** pair (`challenge` and `approach` in `LocalizedProject`). These are optional on purpose: only cases with a real, verifiable narrative fill them. Never invent a challenge to fill the slot — a project with just a description reads better than one with manufactured depth.
+
+Every claim must be traceable to the repository or the live product. Techs listed must match what the project actually uses.
+
+`github` is nullable, for private repositories. Never point at a URL that 404s; render the `repo-note` label instead. Run `npm run check:links` before publishing — it validates every repo and demo URL and exits non-zero on a broken one.
+
+## 12. Agent quick reference
 
 When extending the portfolio, reuse the semantic CSS variables and existing UI primitives. Use Inter for interface copy, JetBrains Mono for metadata, 6/10/16px radii, the 1200px container and the existing responsive breakpoints. Keep the product narrative and hierarchy stronger than any visual effect.

@@ -1,13 +1,22 @@
-import { buildPrinciples } from "@/lib/portfolio-data"
+import type { Content } from "@/lib/content"
 
-export function HowIBuild() {
+export function HowIBuild({ content }: { readonly content: Content }) {
+  const { build } = content
+
   return (
     <section className="section build-section" aria-labelledby="build-title">
       <div className="container">
-        <div className="build-heading"><p className="eyebrow">Processo</p><h2 id="build-title">Como eu construo</h2></div>
+        <div className="build-heading">
+          <p className="eyebrow">{build.eyebrow}</p>
+          <h2 id="build-title">{build.title}</h2>
+        </div>
         <div className="principles-grid">
-          {buildPrinciples.map((principle) => (
-            <article key={principle.number}><span>{principle.number}</span><h3>{principle.title}</h3><p>{principle.description}</p></article>
+          {build.principles.map((principle) => (
+            <article key={principle.number}>
+              <span>{principle.number}</span>
+              <h3>{principle.title}</h3>
+              <p>{principle.description}</p>
+            </article>
           ))}
         </div>
       </div>
