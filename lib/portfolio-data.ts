@@ -46,11 +46,11 @@ export const technologies = [
 export const featuredProjects: readonly Project[] = [
   {
     title: "BarberFlow",
-    description: "Plataforma SaaS para gestão de barbearias, construída para organizar a operação e oferecer uma experiência digital consistente em uma aplicação web publicada.",
-    techs: ["Next.js", "TypeScript", "SaaS", "Vercel"],
+    description: "SaaS completo para barbearias, com agenda, clientes, financeiro, automações e gestão modular em uma experiência consistente do desktop ao celular.",
+    techs: ["Next.js", "TypeScript", "Node.js", "PostgreSQL"],
     type: "SaaS / Full Stack",
     github: "https://github.com/Adryan-Francisco/barbearia-saas",
-    live: "https://barbeflow.vercel.app",
+    live: "https://www.appbarberflow.com.br",
     featured: true,
   },
   {

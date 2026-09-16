@@ -1,3 +1,4 @@
+import Image from "next/image"
 import { ArrowUpRight, Github } from "lucide-react"
 
 import { featuredProjects, profile, type Project } from "@/lib/portfolio-data"
@@ -8,13 +9,13 @@ function FeaturedProject({ project }: { readonly project: Project }) {
   return (
     <article className="featured-project">
       <div className="featured-copy">
-        <div className="project-meta"><span>Case principal</span><span>{project.type}</span></div>
+        <div className="project-meta"><span>Produto em produção</span><span>{project.type}</span></div>
         <h3>{project.title}</h3>
         <p>{project.description}</p>
         <ul className="feature-list">
-          <li>Aplicação web orientada à operação</li>
-          <li>Gestão organizada em uma experiência única</li>
-          <li>Interface responsiva e publicação em ambiente web</li>
+          <li>Agenda, clientes e financeiro em uma operação única</li>
+          <li>Arquitetura SaaS com áreas autenticadas e módulos por plano</li>
+          <li>Experiência responsiva para gestão dentro e fora da barbearia</li>
         </ul>
         <div className="project-techs">{project.techs.map((tech) => <TechBadge key={tech}>{tech}</TechBadge>)}</div>
         <div className="project-actions">
@@ -23,24 +24,33 @@ function FeaturedProject({ project }: { readonly project: Project }) {
         </div>
       </div>
 
-      <div className="product-preview" aria-label="Representação da interface do BarberFlow">
-        <div className="preview-browser"><i /><i /><i /><span>barberflow.app / dashboard</span></div>
-        <div className="preview-shell">
-          <aside><strong>BF</strong><i className="selected" /><i /><i /><i /><i /></aside>
-          <div className="preview-content">
-            <div className="preview-heading"><div><span>Visão geral</span><strong>Boa tarde, Adryan</strong></div><span className="preview-action">+ Agendamento</span></div>
-            <div className="preview-metrics">
-              <div><span>Módulo</span><strong>Agenda</strong><small>organização diária</small></div>
-              <div><span>Módulo</span><strong>Clientes</strong><small>gestão centralizada</small></div>
-              <div><span>Visão</span><strong>Operação</strong><small>painel integrado</small></div>
-            </div>
-            <div className="preview-lower">
-              <div className="preview-chart"><span>Desempenho semanal</span><div className="bars">{[42, 70, 52, 86, 62, 94, 76].map((height, index) => <i key={index} style={{ height: `${height}%` }} />)}</div></div>
-              <div className="preview-agenda"><span>Camadas</span><p><i /><b>Interface</b></p><p><i /><b>Regras de negócio</b></p><p><i /><b>Persistência</b></p></div>
-            </div>
-          </div>
+      <figure className="product-preview">
+        <div className="preview-browser" aria-hidden="true">
+          <i /><i /><i />
+          <span>appbarberflow.com.br / dashboard</span>
+          <strong>Interface atual</strong>
         </div>
-      </div>
+        <a
+          className="preview-image-link"
+          href={project.live ?? project.github}
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Abrir o BarberFlow em uma nova aba"
+        >
+          <Image
+            className="preview-image"
+            src="/projects/barberflow-dashboard-current.png"
+            width={1440}
+            height={900}
+            sizes="(max-width: 1050px) 90vw, 58vw"
+            alt="Dashboard atual do BarberFlow com agenda, receita, próximos atendimentos e serviços cadastrados"
+          />
+        </a>
+        <figcaption>
+          <span><i /> Tela real do produto</span>
+          <span>Dados demonstrativos</span>
+        </figcaption>
+      </figure>
     </article>
   )
 }
