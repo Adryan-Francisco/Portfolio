@@ -1,18 +1,23 @@
 import { technologies } from "@/lib/portfolio-data"
 import { SectionHeader } from "@/components/ui/section-header"
-import { TechBadge } from "@/components/ui/tech-badge"
 
 export function TechStack() {
   return (
-    <section id="stack" className="section section-ruled">
+    <section id="stack" className="section stack-section">
       <div className="container">
-        <SectionHeader index="02" eyebrow="Stack" title="Tecnologias que sustentam o produto." description="Uma base full stack organizada por responsabilidade — da interface ao ambiente de produção." />
-        <div className="stack-list">
+        <SectionHeader
+          index="03"
+          label="Stack"
+          aside="Da interface à produção."
+          title={["A ferramenta certa", "para cada camada."]}
+          outlineLine={1}
+          description="Uma base full stack organizada por responsabilidade — da interface ao ambiente de produção."
+        />
+        <div className="stack-grid" data-reveal>
           {technologies.map((group, index) => (
-            <article className="stack-row" key={group.category}>
-              <span className="stack-number">0{index + 1}</span>
-              <h3>{group.category}</h3>
-              <div className="stack-items">{group.items.map((item) => <TechBadge key={item}>{item}</TechBadge>)}</div>
+            <article className="stack-col" key={group.category}>
+              <h3>{group.category}<span aria-hidden="true">0{index + 1}</span></h3>
+              <ul>{group.items.map((item) => <li key={item}>{item}</li>)}</ul>
             </article>
           ))}
         </div>

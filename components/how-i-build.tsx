@@ -1,15 +1,27 @@
 import { buildPrinciples } from "@/lib/portfolio-data"
+import { SectionHeader } from "@/components/ui/section-header"
 
 export function HowIBuild() {
   return (
-    <section className="section build-section" aria-labelledby="build-title">
+    <section id="processo" className="section build-section" aria-labelledby="build-title">
       <div className="container">
-        <div className="build-heading"><p className="eyebrow">Processo</p><h2 id="build-title">Como eu construo</h2></div>
-        <div className="principles-grid">
+        <SectionHeader
+          index="04"
+          label="Como eu construo"
+          aside="Sem caixa-preta."
+          title={["Da ideia", "à produção."]}
+          outlineLine={1}
+          titleId="build-title"
+        />
+        <ol className="steps">
           {buildPrinciples.map((principle) => (
-            <article key={principle.number}><span>{principle.number}</span><h3>{principle.title}</h3><p>{principle.description}</p></article>
+            <li className="step" key={principle.number} data-reveal>
+              <span className="step-number" aria-hidden="true">{principle.number}</span>
+              <h3>{principle.title}</h3>
+              <p>{principle.description}</p>
+            </li>
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   )

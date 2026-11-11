@@ -20,12 +20,21 @@ export const profile = {
   githubUsername: "Adryan-Francisco",
 } as const
 
+export const team = {
+  name: "404Devs",
+  role: "Back-end e arquitetura",
+  url: "https://404devs.vercel.app/",
+} as const
+
 export const navLinks = [
+  { label: "Projetos", href: "#projetos" },
   { label: "Sobre", href: "#sobre" },
   { label: "Stack", href: "#stack" },
-  { label: "Projetos", href: "#projetos" },
+  { label: "Processo", href: "#processo" },
   { label: "Contato", href: "#contato" },
 ] as const
+
+export const heroTechs = ["React", "Next.js", "TypeScript", "C#", ".NET", "Node.js", "PostgreSQL", "Docker"] as const
 
 export const expertise = [
   { label: "Frontend", value: "React / Next.js / TypeScript" },
@@ -40,7 +49,7 @@ export const technologies = [
   { category: "Backend", items: ["C#", ".NET", "ASP.NET Core", "Node.js", "REST APIs"] },
   { category: "Arquitetura", items: ["DDD", "SOLID", "Clean Code", "Arquitetura em camadas"] },
   { category: "Banco de dados", items: ["PostgreSQL", "SQL", "Supabase"] },
-  { category: "Ferramentas e infraestrutura", items: ["Git", "GitHub", "Docker", "Vercel", "VPS"] },
+  { category: "Infraestrutura", items: ["Git", "GitHub", "Docker", "Vercel", "VPS"] },
 ] as const
 
 export const featuredProjects: readonly Project[] = [

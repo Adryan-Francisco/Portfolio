@@ -1,8 +1,13 @@
 import type { Metadata } from "next"
+import { Bricolage_Grotesque, IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 
 import { profile } from "@/lib/portfolio-data"
 import "./globals.css"
+
+const display = Bricolage_Grotesque({ subsets: ["latin"], weight: ["700"], variable: "--font-bricolage", display: "swap" })
+const body = IBM_Plex_Sans({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--font-plex-sans", display: "swap" })
+const code = IBM_Plex_Mono({ subsets: ["latin"], weight: ["400", "500"], variable: "--font-plex-mono", display: "swap" })
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://portfolio-adryanf.vercel.app"),
@@ -45,7 +50,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport = {
-  themeColor: "#080b12",
+  themeColor: "#ffffff",
 }
 
 export default function RootLayout({
@@ -54,8 +59,12 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-BR" className="scroll-smooth">
-      <body className="font-sans antialiased">
+    <html lang="pt-BR" className={`${display.variable} ${body.variable} ${code.variable}`} suppressHydrationWarning>
+      <head>
+        {/* Marca que há JS antes da pintura: sem isso o conteúdo com data-reveal nunca fica oculto. */}
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
+      </head>
+      <body className="antialiased">
         {children}
         <Analytics />
       </body>

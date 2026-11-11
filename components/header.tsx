@@ -7,7 +7,7 @@ import { navLinks, profile } from "@/lib/portfolio-data"
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false)
-  const [activeSection, setActiveSection] = useState("sobre")
+  const [activeSection, setActiveSection] = useState("")
 
   useEffect(() => {
     const sections = navLinks
@@ -35,7 +35,7 @@ export function Header() {
     <header className="site-header">
       <nav className="container nav-shell" aria-label="Navegação principal">
         <a href="#top" className="brand" aria-label="Adryan Francisco — início">
-          <span className="brand-mark">AF</span>
+          <span className="brand-mark" aria-hidden="true">AF</span>
           <span className="brand-name">Adryan Francisco</span>
         </a>
 
@@ -49,10 +49,9 @@ export function Header() {
           ))}
         </ul>
 
-        <div className="desktop-socials">
-          <a href={profile.github} target="_blank" rel="noreferrer" aria-label="GitHub de Adryan"><Github /></a>
-          <a href={profile.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn de Adryan"><Linkedin /></a>
-        </div>
+        <a className="button button-primary nav-cta" href={profile.linkedin} target="_blank" rel="noreferrer">
+          Vamos conversar <span className="arrow" aria-hidden="true">↗</span>
+        </a>
 
         <button className="menu-button" type="button" aria-label={isOpen ? "Fechar menu" : "Abrir menu"} aria-expanded={isOpen} onClick={() => setIsOpen((value) => !value)}>
           {isOpen ? <X /> : <Menu />}
@@ -67,6 +66,9 @@ export function Header() {
                 <span>0{index + 1}</span>{link.label}
               </a>
             ))}
+            <a className="button button-primary" href={profile.linkedin} target="_blank" rel="noreferrer">
+              Vamos conversar <span className="arrow" aria-hidden="true">↗</span>
+            </a>
             <div className="mobile-socials">
               <a href={profile.github} target="_blank" rel="noreferrer"><Github /> GitHub</a>
               <a href={profile.linkedin} target="_blank" rel="noreferrer"><Linkedin /> LinkedIn</a>
